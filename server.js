@@ -19,7 +19,7 @@ mongoose
         useCreateIndex: true
       })
   .then(() => console.log("mongodb connected"))
-  .catch( err => console.log("err: ", err))
+  .catch( err => console.log("error connection to atlas: ", err))
 
   app.use(cors());
   // app.use('/api/songs', songs)
@@ -63,14 +63,21 @@ app.post('/user', (req, res) => {
 })
  // get all songs
 app.get('/songs', function(req, res){
-  Song.find({})
-  .then(function(response){
-    res.json(response)
+  User.findOne({_id: req.body.use}, (err, response) => {
+    if (err) {
+      return console.log(err);
+    }
+
+    console.log("responseeeeee: ", response);
   })
-  .catch(function(err){
-    res.json(err)
-  })
-  // res.send('the homepage is working')
+  // Song.find({})
+  // .then(function(response){
+  //   res.json(response)
+  // })
+  // .catch(function(err){
+  //   res.json(err)
+  // })
+  // // res.send('the homepage is working')
 })
 // get track by name
 app.get('/drum-machine/:trackName', (req, res) => {
