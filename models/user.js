@@ -18,7 +18,7 @@ const mongoose = require('mongoose');
     beatz: [{
       authorName: String,
       trackName: String,
-      sequence: [[{play: Boolean, ready: Boolean}]]
+      song: [[{play: Boolean, ready: Boolean}]]
     }]
   })
 

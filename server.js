@@ -34,35 +34,31 @@ const User = require('./models/user')
 // SONGS CRUD
 //save single song
 app.post('/user', (req, res) => {
-  User.findbyIdandUpdate(
-    req.params.id,
 
-    
+
+  console.log("Sequence over herererere: ", req.body.song);
+  console.log("authorName: ", req.body);
+
+  User.findOneAndUpdate(
+
+    {_id: req.body.userId},
+
+    {$push: {"beatz": {
+      authorName: req.body.authorName,
+      trackName: req.body.trackName,
+      song: req.body.song
+    }
+
+    }},
+    { safe: true, upsert: true },
+    function (err, model) {
+      if (err) {
+        //console.log(err);
+        return res.send(err);
+      }
+      return res.json(model);
+    }
   )
-
-
-  // updateOne({ id: req.user.id }, { $set: { name: 'foo' } }
-  // const song = new Song({
-  //   _id: new mongoose.Types.ObjectId(),
-  //   authorName: req.body.authorName,
-  //   trackName: req.body.trackName,
-  //   sequence: req.body.song
-  // })
-  // song
-  //   .save()
-  //   .then(result => {
-  //     console.log(result);
-  //     res.status(201).json({
-  //       message: "Handling POST requests to /products",
-  //       createdProduct: result
-  //     });
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //     res.status(500).json({
-  //       error: err
-  //     });
-  //   });
 
 })
  // get all songs
