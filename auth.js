@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 function auth(req, res, next){
   const token = req.header('Authorization');
-  console.log('token', token);
+  console.log('TOKEN from headers', token);
   // console.log("request: ", req);
   if (!token) {
     // wrong user (unauthorised)
