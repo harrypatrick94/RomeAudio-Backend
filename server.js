@@ -10,8 +10,8 @@ const jwt = require('jsonwebtoken')
 const songs = require('./routes/api/songs')
 const auth = require('./auth')
 // const PORT = process.env.PORT || 1337
-
-const db = config.get('mongoURI')
+const db = process.env.MONGODB_URL || config.get('mongoURI');
+// const db = config.get('mongoURI')
 //mongoose connect
 mongoose
   .connect(db, {
@@ -146,6 +146,7 @@ app.post('/register', (req, res) => {
 
 // sign in
 app.post('/signin', (req, res) => {
+  console.log("trying to sign in");
   const {email, password} = req.body
   if (!email || !password) {
     return res.status(400).json({msg: "Please enter all fields"})
