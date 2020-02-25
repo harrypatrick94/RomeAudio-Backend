@@ -9,7 +9,7 @@ const config = require('config')
 const jwt = require('jsonwebtoken')
 const songs = require('./routes/api/songs')
 const auth = require('./auth')
-const PORT = process.env.PORT || 1337
+// const PORT = process.env.PORT || 1337
 
 const db = config.get('mongoURI')
 //mongoose connect
@@ -23,7 +23,7 @@ mongoose
 
   app.use(cors());
   // app.use('/api/songs', songs)
-  app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+  // app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
   // bodyParser middle useNewUrlParser
   app.use(bodyParser.json())
 
