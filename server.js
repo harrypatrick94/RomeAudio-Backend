@@ -24,7 +24,7 @@ app.use(cors(corsOptions));
 //   "preflightContinue": false
 // }))
 // const PORT = process.env.PORT || 1337
-const db = process.env.MONGODB_URL || config.get('mongoURI');
+const db = process.env.PORT || config.get('mongoURI');
 // const db = config.get('mongoURI')
 //mongoose connect
 
