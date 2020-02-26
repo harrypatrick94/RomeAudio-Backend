@@ -163,7 +163,7 @@ app.post('/register', (req, res) => {
 
 // sign in
 app.post('/signin', (req, res) => {
-  console.log("trying to sign in");
+  console.log("trying to sign in over herer please LOOOOOOOKKKK ATTTTT MMMEEEEE");
   const {email, password} = req.body
   if (!email || !password) {
     return res.status(400).json({msg: "Please enter all fields"})
