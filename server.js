@@ -11,7 +11,7 @@ const songs = require('./routes/api/songs')
 const auth = require('./auth')
 // const request = require('request');
 
-app.use("*", cors())
+app.use(cors())
 // app.use(cors({
 //   'origin': "*",
 //   "methods": "GET,HEAD,PUT,POST",
