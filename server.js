@@ -9,6 +9,9 @@ const config = require('config')
 const jwt = require('jsonwebtoken')
 const songs = require('./routes/api/songs')
 const auth = require('./auth')
+// const request = require('request');
+
+
 // const PORT = process.env.PORT || 1337
 const db = process.env.MONGODB_URL || config.get('mongoURI');
 // const db = config.get('mongoURI')
@@ -29,11 +32,15 @@ mongoose
   .then(() => console.log("mongodb connected"))
   .catch( err => console.log("error connection to atlas: ", err))
 
-  app.use(cors("Access-Control-Allow-Origin": "*"));
+  // app.use(cors("Access-Control-Allow-Origin": "*"));
   // app.use('/api/songs', songs)
   // app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
   // bodyParser middle useNewUrlParser
   app.use(bodyParser.json())
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+  });
 
 //import modules
 const Song = require('./models/songs')
