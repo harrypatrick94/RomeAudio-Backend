@@ -28,27 +28,27 @@ const db = process.env.MONGODB_URL || config.get('mongoURI');
 // const db = config.get('mongoURI')
 //mongoose connect
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(db, {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-      useCreateIndex: true
-    });
-    console.log("MongoDB is Connected...");
-  } catch (err) {
-    console.error("can not connect to atlas ", err.message);
-    process.exit(1);
-  }
-};
+// const connectDB = async () => {
+//   try {
+//     await mongoose.connect(db, {
+//       useUnifiedTopology: true,
+//       useNewUrlParser: true,
+//       useCreateIndex: true
+//     });
+//     console.log("MongoDB is Connected...");
+//   } catch (err) {
+//     console.error("can not connect to atlas ", err.message);
+//     process.exit(1);
+//   }
+// };
 
-// mongoose
-//   .connect(db, {
-//         useNewUrlParser: true,
-//         useCreateIndex: true
-//       })
-//   .then(() => console.log("mongodb connected"))
-//   .catch( err => console.log("error connection to atlas: ", err))
+mongoose
+  .connect(db, {
+        useNewUrlParser: true,
+        useCreateIndex: true
+      })
+  .then(() => console.log("mongodb connected"))
+  .catch( err => console.log("error connection to atlas: ", err))
 
 
   // app.use('/api/songs', songs)
