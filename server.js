@@ -114,15 +114,25 @@ app.get('/songs', function(req, res){
   // // res.send('the homepage is working')
 })
 // get track by name
-// app.get('/drum-machine/:trackName', (req, res) => {
-//
-//     Song.find({trackName: req.params.trackName}, (err, result) => {
-//     if (err) {
-//       return console.log('song find error', err);
-//     }
-//     res.json(result)
-//   }) // db.collection songs
-//
+app.get('/user/:trackName', auth, (req, res) => {
+
+  let trackName = req.params.trackName;
+  console.log("Top of get track: ", trackName);
+  User.findById(req.user.id)
+    .select('-password')
+    .then(user => {
+      console.log("im down here", user);
+
+      res.json(user)
+    })
+
+    // Song.find({trackName: req.params.trackName}, (err, result) => {
+    // if (err) {
+    //   return console.log('song find error', err);
+    // }
+    // res.json(result)
+  }) // db.collection songs
+
 // }) //app.get track name
 // SONGS CRUD
 
