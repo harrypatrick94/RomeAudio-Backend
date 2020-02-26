@@ -10,13 +10,13 @@ const jwt = require('jsonwebtoken')
 const songs = require('./routes/api/songs')
 const auth = require('./auth')
 // const request = require('request');
-
-const corsOptions = {
-  origin: "https://harrypatrick94.github.io/RomeAudio-Frontend",
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
-// app.use(cors())
+//
+// const corsOptions = {
+//   origin: "https://harrypatrick94.github.io/RomeAudio-Frontend",
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
+// app.use(cors(corsOptions));
+app.use(cors())
 // app.options("*", cors())
 // // app.use(cors({
 //   'origin': "*",
