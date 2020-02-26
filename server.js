@@ -11,14 +11,14 @@ const songs = require('./routes/api/songs')
 const auth = require('./auth')
 // const request = require('request');
 
-
+app.options('*', cors())
 // const PORT = process.env.PORT || 1337
 const db = process.env.MONGODB_URL || config.get('mongoURI');
 // const db = config.get('mongoURI')
 //mongoose connect
 
-app.options('*', cors())
-app.use(cors("Access-Control-Allow-Origin", "*"));
+
+// app.use(cors("Access-Control-Allow-Origin", "*"));
 mongoose
   .connect(db, {
         useNewUrlParser: true,
