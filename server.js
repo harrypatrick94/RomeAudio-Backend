@@ -97,7 +97,7 @@ app.post('/user', (req, res) => {
 })
  // get all songs
 app.get('/songs', function(req, res){
-  User.findOne({_id: req.body.use}, (err, response) => {
+  User.findOne({_id: req.body.userId}, (err, response) => {
     if (err) {
       return console.log(err);
     }
@@ -114,16 +114,16 @@ app.get('/songs', function(req, res){
   // // res.send('the homepage is working')
 })
 // get track by name
-app.get('/drum-machine/:trackName', (req, res) => {
-
-    Song.find({trackName: req.params.trackName}, (err, result) => {
-    if (err) {
-      return console.log('song find error', err);
-    }
-    res.json(result)
-  }) // db.collection songs
-
-}) //app.get track name
+// app.get('/drum-machine/:trackName', (req, res) => {
+//
+//     Song.find({trackName: req.params.trackName}, (err, result) => {
+//     if (err) {
+//       return console.log('song find error', err);
+//     }
+//     res.json(result)
+//   }) // db.collection songs
+//
+// }) //app.get track name
 // SONGS CRUD
 
 // users CRUD
