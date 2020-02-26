@@ -25,7 +25,8 @@ mongoose
       })
   .then(() => console.log("mongodb connected"))
   .catch( err => console.log("error connection to atlas: ", err))
-
+  
+  app.options('*', cors())
   app.use(cors("Access-Control-Allow-Origin", "*"));
   // app.use('/api/songs', songs)
   // app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
