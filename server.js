@@ -16,7 +16,7 @@ const auth = require('./auth')
 //   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 // };
 // app.use(cors(corsOptions));
-app.use(cors())
+
 // app.options("*", cors())
 // // app.use(cors({
 //   'origin': "*",
@@ -27,7 +27,7 @@ app.use(cors())
 const db = process.env.MONGODB_URL || config.get('mongoURI');
 // const db = config.get('mongoURI')
 //mongoose connect
-
+app.use(cors())
 // const connectDB = async () => {
 //   try {
 //     await mongoose.connect(db, {
@@ -179,7 +179,7 @@ app.post('/register', (req, res) => {
 }) // post
 
 // sign in
-app.get('/signin', (req, res) => {
+app.post('/signin', (req, res) => {
   console.log("trying to sign in over herer please LOOOOOOOKKKK ATTTTT MMMEEEEE");
   const {email, password} = req.body
   if (!email || !password) {
