@@ -52,9 +52,9 @@ mongoose
 
 
   // app.use('/api/songs', songs)
-  app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+  const server = app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
   // bodyParser middle useNewUrlParser
-
+  // module.exports = server
   app.use(bodyParser.json())
   // app.use((req, res, next) => {
   //   res.header('Access-Control-Allow-Origin', '*');
@@ -104,14 +104,7 @@ app.get('/songs', function(req, res){
 
     console.log("responseeeeee: ", response);
   })
-  // Song.find({})
-  // .then(function(response){
-  //   res.json(response)
-  // })
-  // .catch(function(err){
-  //   res.json(err)
-  // })
-  // // res.send('the homepage is working')
+
 })
 // get track by name
 app.get('/user/:trackName', auth, (req, res) => {
@@ -126,19 +119,9 @@ app.get('/user/:trackName', auth, (req, res) => {
       res.json(user)
     })
 
-    // Song.find({trackName: req.params.trackName}, (err, result) => {
-    // if (err) {
-    //   return console.log('song find error', err);
-    // }
-    // res.json(result)
+
   }) // db.collection songs
 
-// }) //app.get track name
-// SONGS CRUD
-
-// users CRUD
-// create new user
-// req.body (body parser)
 app.post('/register', (req, res) => {
   const {userName, email, password} = req.body
   // small validation
@@ -237,4 +220,15 @@ app.get('/user', auth, (req, res) => {
       console.log("im down here", user);
       res.json(user)
     })
+})
+
+
+const io = require('socket.io')(server)
+
+io.on('connection', socket => {
+  console.log('got that connection yo');
+  setInterval(() => {
+    console.log("connected");
+    socket.emit('ping', {msg: 'hi there'})
+  }, 2000)
 })
