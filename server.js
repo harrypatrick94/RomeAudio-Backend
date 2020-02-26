@@ -37,7 +37,7 @@ const connectDB = async () => {
     });
     console.log("MongoDB is Connected...");
   } catch (err) {
-    console.error(err.message);
+    console.error("can not connect to atlas ", err.message);
     process.exit(1);
   }
 };

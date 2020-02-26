@@ -2,10 +2,9 @@
   "name": "mongodb-romeAudio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "serve": "nodemon server.js",
-    "song": "nodemon songs.js"
+    "serve": "run server.js",
   },
   "keywords": [],
   "author": "",
