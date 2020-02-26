@@ -11,7 +11,12 @@ const songs = require('./routes/api/songs')
 const auth = require('./auth')
 // const request = require('request');
 
-app.use("*", cors())
+// app.use("*", cors())
+app.use(cors({
+  'origin': "*",
+  "methods": "GET,HEAD,PUT,POST",
+  "preflightContinue": false
+}))
 // const PORT = process.env.PORT || 1337
 const db = process.env.MONGODB_URL || config.get('mongoURI');
 // const db = config.get('mongoURI')
@@ -31,13 +36,7 @@ mongoose
   // app.use('/api/songs', songs)
   // app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
   // bodyParser middle useNewUrlParser
-  // app.use(function (req, res, next) {
-  //     res.header("Access-Control-Allow-Origin", '*');
-  //     res.header("Access-Control-Allow-Credentials", true);
-  //     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  //     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-  //     next();
-  // });
+
   app.use(bodyParser.json())
   // app.use((req, res, next) => {
   //   res.header('Access-Control-Allow-Origin', '*');
