@@ -179,7 +179,7 @@ app.post('/register', (req, res) => {
 }) // post
 
 // sign in
-app.post('/signin', (req, res) => {
+app.get('/signin', (req, res) => {
   console.log("trying to sign in over herer please LOOOOOOOKKKK ATTTTT MMMEEEEE");
   const {email, password} = req.body
   if (!email || !password) {
