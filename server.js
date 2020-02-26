@@ -11,7 +11,7 @@ const songs = require('./routes/api/songs')
 const auth = require('./auth')
 // const request = require('request');
 
-app.options('*', cors())
+app.cors('*')
 // const PORT = process.env.PORT || 1337
 const db = process.env.MONGODB_URL || config.get('mongoURI');
 // const db = config.get('mongoURI')
