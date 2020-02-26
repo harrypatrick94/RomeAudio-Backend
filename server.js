@@ -23,11 +23,11 @@ const auth = require('./auth')
 //   "methods": "GET,HEAD,PUT,POST",
 //   "preflightContinue": false
 // }))
-// const PORT = process.env.PORT || 1337
+const PORT = process.env.PORT || 1337
 const db = process.env.MONGODB_URL || config.get('mongoURI');
 // const db = config.get('mongoURI')
 //mongoose connect
-app.use(cors())
+app.use(cors());
 // const connectDB = async () => {
 //   try {
 //     await mongoose.connect(db, {
@@ -52,7 +52,7 @@ mongoose
 
 
   // app.use('/api/songs', songs)
-  // app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+  app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
   // bodyParser middle useNewUrlParser
 
   app.use(bodyParser.json())
