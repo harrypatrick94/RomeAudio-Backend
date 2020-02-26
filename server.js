@@ -11,12 +11,12 @@ const songs = require('./routes/api/songs')
 const auth = require('./auth')
 // const request = require('request');
 
-// app.use("*", cors())
-app.use(cors({
-  'origin': "*",
-  "methods": "GET,HEAD,PUT,POST",
-  "preflightContinue": false
-}))
+app.use("*", cors())
+// app.use(cors({
+//   'origin': "*",
+//   "methods": "GET,HEAD,PUT,POST",
+//   "preflightContinue": false
+// }))
 // const PORT = process.env.PORT || 1337
 const db = process.env.MONGODB_URL || config.get('mongoURI');
 // const db = config.get('mongoURI')
